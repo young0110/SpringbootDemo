@@ -12,6 +12,7 @@
 
 # Package Files #
 .idea
+target/
 .mvn
 *.jar
 *.war

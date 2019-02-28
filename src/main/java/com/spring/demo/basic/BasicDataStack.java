@@ -27,7 +27,7 @@ public class BasicDataStack implements CommandLineRunner {
   }
 
   private void init() {
-    log.info("初始化栈数据...");
+    log.info("初始化数据栈...");
   }
 
 }
