@@ -11,8 +11,8 @@
 .mtj.tmp/
 
 # Package Files #
-.idea
 target/
+.idea
 .mvn
 *.jar
 *.war
