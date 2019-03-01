@@ -4,3 +4,7 @@ server:
 spring:
   profiles:
     active: dev
+
+#need to set a logging.file or logging.path property only
+logging:
+  path: ./logs

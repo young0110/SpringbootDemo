@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+  <contextName>logback</contextName>
+  <property name="log_dir" value="${logging.path}" />
+  <property name="maxHistory" value="30" />
+  <property name="DATETIME" value="yyyy-MM-dd HH:mm:ss" />
+
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder charset="utf-8">
+      <pattern>%d{${DATETIME}} [%thread] %-5level %logger -%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- INFO 输入到文件，按日期和文件大小 -->
+  <appender name="info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <encoder charset="utf-8">
+      <pattern>[%-5level] %d{${DATETIME}} [%thread] %logger{36} - %m%n</pattern>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>INFO</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- 按天回滚 -->
+      <fileNamePattern>${log_dir}/info%d{yyyy-MM-dd}.log</fileNamePattern>
+      <!-- 日志最大保留天数 -->
+      <maxHistory>${maxHistory}</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+  <!-- 一个具体包或者类的日志级别 -->
+  <!--logger name="" level="info" additivity="true">
+    <appender-ref ref="info" />
+  </logger-->
+
+  <root level="info">
+    <appender-ref ref="console" />
+    <appender-ref ref="info" />
+  </root>
+
+</configuration>
