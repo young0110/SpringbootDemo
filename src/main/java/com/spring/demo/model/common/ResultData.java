@@ -9,11 +9,11 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Collections;
 
-
 @Getter
 @Setter
 @ToString
 @ApiModel("ResultData")
+@SuppressWarnings("unchecked")
 public class ResultData<T> implements Serializable {
   @ApiModelProperty(value = "返回状态", example = "0")
   private Integer code;
