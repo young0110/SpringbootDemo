@@ -21,7 +21,6 @@ target/
 *.zip
 *.tar.gz
 *.rar
-*.iml
 *.impl
 
 
