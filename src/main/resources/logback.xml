@@ -2,7 +2,7 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
 
   <contextName>logback</contextName>
-  <property name="log_dir" value="${logging.path}" />
+  <property name="log_dir" value="./logs" />
   <property name="maxHistory" value="30" />
   <property name="DATETIME" value="yyyy-MM-dd HH:mm:ss" />
 
