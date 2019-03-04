@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Collections;
 
@@ -33,21 +34,17 @@ public class ResultData<T> implements Serializable {
     this.data = (T)Collections.emptyMap();
   }
 
-  public ResultData(String msg) {
-    this.code = Msg.SUCCESS.getCode();
-    this.msg = msg;
-    this.data = (T)Collections.emptyMap();
-  }
-
-  public ResultData(T data) {
-    this.code = Msg.SUCCESS.getCode();
-    this.msg = Msg.SUCCESS.getMsg();
-    this.data = data;
-  }
-
   public ResultData(Msg msg) {
     this.code = msg.getCode();
     this.msg = msg.getMsg();
     this.data = (T)Collections.emptyMap();
   }
+
+  public ResultData(@NotNull T data) {
+    this.code = Msg.SUCCESS.getCode();
+    this.msg = Msg.SUCCESS.getMsg();
+    this.data = data;
+  }
+
+
 }
