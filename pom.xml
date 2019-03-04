@@ -34,6 +34,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- jpa -->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>-->
+
         <!-- swagger ui -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -45,6 +51,12 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
+        </dependency>
+
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
         <!-- lombok -->
