@@ -86,7 +86,7 @@ public class OkHttpUtils {
         e.printStackTrace();
       }
     });
-    if (params != null) params.forEach(multipartBodyBuilder::addFormDataPart);
+    if (null != params) params.forEach(multipartBodyBuilder::addFormDataPart);
     Request.Builder builder = new Request.Builder().url(url).post(multipartBodyBuilder.build());
     return doHttp(builder, headers);
   }
