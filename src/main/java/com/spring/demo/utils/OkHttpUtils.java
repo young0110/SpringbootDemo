@@ -29,24 +29,12 @@ public class OkHttpUtils {
   private static final OkHttpClient okHttpClient = getClient();
 
   private static ResponseBody doHttp(Request.Builder builder, Map<String, String> headers) {
-    if (null == headers) headers.forEach(builder::addHeader);
+    if (null != headers) headers.forEach(builder::addHeader);
     try {
       return getClient()
             .newCall(builder.build())
             .execute()
             .body();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    return null;
-  }
-
-  private static Response executeHttp(Request.Builder builder, Map<String, String> headers) {
-    if (null == headers) headers.forEach(builder::addHeader);
-    try {
-      return getClient()
-            .newCall(builder.build())
-            .execute();
     } catch (IOException e) {
       e.printStackTrace();
     }
