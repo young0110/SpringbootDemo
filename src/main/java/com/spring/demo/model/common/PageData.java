@@ -27,6 +27,12 @@ public class PageData<T> implements Serializable {
   @ApiModelProperty(value = "分页数据")
   private List<T> data = Collections.emptyList();
 
+  public PageData(long total, int totalPage, List<T> data) {
+    this.total = total;
+    this.totalPage = totalPage;
+    this.data = data;
+  }
+
   public PageData(Page<T> page) {
     if (null != page) {
       this.total = page.getTotalElements();
