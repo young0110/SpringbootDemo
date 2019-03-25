@@ -3,10 +3,7 @@ package com.spring.demo.config.component;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.CodeSignature;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -57,6 +54,11 @@ public class WebLogAspect {
     }
     log.info(sb.toString());
   }
+
+  /*@AfterThrowing(throwing = "ex", pointcut="execution(* com.spring..*.controller..*.*(..))")
+  public void doAfterThrowing(Throwable ex) {
+    log.info("系统异常", ex);
+  }*/
 
   /**
    * 定义一个切入点.

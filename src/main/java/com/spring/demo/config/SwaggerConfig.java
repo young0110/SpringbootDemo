@@ -45,7 +45,7 @@ public class SwaggerConfig {
             SecurityContext.builder()
                            .securityReferences(defaultAuth())
                            //.forPaths(PathSelectors.ant("/api/common/*"))
-                           .forPaths(PathSelectors.regex("/api/common.*"))
+                           .forPaths(PathSelectors.regex("/api/!common.*"))
                            .build()
     );
   }

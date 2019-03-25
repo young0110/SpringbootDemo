@@ -7,6 +7,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
+import java.util.Arrays;
+
 /**
  * 跨域
  */
@@ -21,7 +23,7 @@ public class CorsConfig extends WebMvcConfigurationSupport {
 
   @Override
   protected void addInterceptors(InterceptorRegistry registry) {
-    registry.addInterceptor(new AuthTokenInterceptor()).addPathPatterns("/api/common/*");
+    registry.addInterceptor(new AuthTokenInterceptor()).addPathPatterns("/api/**").excludePathPatterns(Arrays.asList("/api/common/*", "/api/public/*"));
   }
 
   @Override
