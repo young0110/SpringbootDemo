@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * 统一异常处理
+ * 通知是切面的一种实现
  * @author zhangyang
  * @version 0.1
  * create 2019/1/7

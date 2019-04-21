@@ -6,14 +6,17 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 跨域
  */
 @Configuration
 public class CorsConfig extends WebMvcConfigurationSupport {
+
+  private static List<String> authPaths = Arrays.asList("/api/**");
+  private static List<String> authExPaths = Arrays.asList("/api/common/*", "/api/public/*");
 
   public void addCorsMappings(CorsRegistry registry) {
     registry.addMapping("/**")
@@ -23,7 +26,7 @@ public class CorsConfig extends WebMvcConfigurationSupport {
 
   @Override
   protected void addInterceptors(InterceptorRegistry registry) {
-    registry.addInterceptor(new AuthTokenInterceptor()).addPathPatterns("/api/**").excludePathPatterns(Arrays.asList("/api/common/*", "/api/public/*"));
+    registry.addInterceptor(new AuthTokenInterceptor()).addPathPatterns(authPaths).excludePathPatterns(authExPaths);
   }
 
   @Override

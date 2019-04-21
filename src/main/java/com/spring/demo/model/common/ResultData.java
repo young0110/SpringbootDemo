@@ -20,7 +20,7 @@ public class ResultData<T> implements Serializable {
   private Integer code;
   @ApiModelProperty(value = "返回数据")
   private T data;
-  @ApiModelProperty(value = "返回信息", example = "ok")
+  @ApiModelProperty(value = "返回信息", example = "success")
   private String msg;
 
   public ResultData(Integer code, String msg, T data) {
